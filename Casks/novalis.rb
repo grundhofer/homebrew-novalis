@@ -2,8 +2,7 @@ cask "novalis" do
   version "1.0.0-alpha.1"
   sha256 "f9c0f728ce3ebec86e1a77634fa15f0dbaf8341e761f5764654a1d808d905d44"
 
-  url "https://github.com/grundhofer/novalis/releases/download/v#{version}/novalis_#{version}_aarch64.dmg",
-      verified: "github.com/grundhofer/novalis/"
+  url "https://github.com/grundhofer/novalis/releases/download/v#{version}/novalis_#{version}_aarch64.dmg"
   name "novalis"
   desc "Markdown notes with a Sublime-like editor and a Kanban board, in plain files"
   homepage "https://github.com/grundhofer/novalis"
