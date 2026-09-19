@@ -8,14 +8,22 @@ cask "novalis" do
   desc "Markdown notes, a Sublime-like editor and a small Kanban board over a folder of plain files"
   homepage "https://github.com/grundhofer/novalis"
 
-  # Pre-releases are the only releases until 1.0.0; the strategy sees them.
+  # Pre-releases are the only releases until 1.0.0. The strategy skips them
+  # by default, so the block keeps them and drops only drafts.
   livecheck do
     url :url
-    strategy :github_releases
+    regex(/^v?(\d+(?:\.\d+)+(?:-[a-z]+\.\d+)?)$/i)
+    strategy :github_releases do |json, regex|
+      json.filter_map do |release|
+        next if release["draft"]
+
+        release["tag_name"]&.match(regex)&.captures&.first
+      end
+    end
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "novalis.app"
 
