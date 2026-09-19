@@ -5,7 +5,7 @@ cask "novalis" do
   url "https://github.com/grundhofer/novalis/releases/download/v#{version}/novalis_#{version}_aarch64.dmg",
       verified: "github.com/grundhofer/novalis/"
   name "novalis"
-  desc "Markdown notes, a Sublime-like editor and a small Kanban board over a folder of plain files"
+  desc "Markdown notes with a Sublime-like editor and a Kanban board, in plain files"
   homepage "https://github.com/grundhofer/novalis"
 
   # Pre-releases are the only releases until 1.0.0. The strategy skips them
@@ -17,7 +17,8 @@ cask "novalis" do
       json.filter_map do |release|
         next if release["draft"]
 
-        release["tag_name"]&.match(regex)&.captures&.first
+        match = release["tag_name"]&.match(regex)
+        match[1] if match
       end
     end
   end

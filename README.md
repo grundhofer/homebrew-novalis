@@ -19,4 +19,4 @@ Releases before 1.0.0 are pre-releases; `brew upgrade` follows them.
 
 Two files change per release, both from the release's `SHA256SUMS`:
 `Casks/novalis.rb` (`version`, `sha256` of the DMG) and
-`Formula/novalis-cli.rb` (`version`, `sha256` of the CLI tarball).
+`Formula/novalis-cli.rb` (the version in the `url`, `sha256` of the CLI tarball).
