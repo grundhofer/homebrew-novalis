@@ -1,8 +1,8 @@
 class NovalisCli < Formula
   desc "Headless vault operations for novalis: notes, links, tags, boards"
   homepage "https://github.com/grundhofer/novalis"
-  url "https://github.com/grundhofer/novalis/releases/download/v1.0.0-alpha.1/novalis-cli-1.0.0-alpha.1-arm64.tar.gz"
-  sha256 "c2ee912d6457da22a88c8583789203b98b939f29e71a455f6ac415a028a5b8ec"
+  url "https://github.com/grundhofer/novalis/releases/download/v1.0.0-alpha.2/novalis-cli-1.0.0-alpha.2-arm64.tar.gz"
+  sha256 "600c2ecebeb6d9573dfa3d63061b06d1bb42b76314c454e1b204493d883b139f"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -23,9 +23,12 @@ class NovalisCli < Formula
 
   def install
     bin.install "novalis"
+    # The agent skill (`novalis skill --path`), from 1.0.0-alpha.2 on.
+    share.install "share/novalis"
   end
 
   test do
     assert_match "novalis", shell_output("#{bin}/novalis --help")
+    assert_path_exists share/"novalis/skill/SKILL.md"
   end
 end
