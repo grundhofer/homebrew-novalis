@@ -5,17 +5,10 @@ class NovalisCli < Formula
   sha256 "a4c0ef15d702c1a8b022a4c1ebfd4e24c6db0d3df331be488eaf5e07fec4fd79"
   license "AGPL-3.0-only"
 
+  # Stable releases only: GitHub's latest release is never a pre-release.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+(?:-[a-z]+\.\d+)?)$/i)
-    strategy :github_releases do |json, regex|
-      json.filter_map do |release|
-        next if release["draft"]
-
-        match = release["tag_name"]&.match(regex)
-        match[1] if match
-      end
-    end
+    strategy :github_latest
   end
 
   depends_on arch: :arm64

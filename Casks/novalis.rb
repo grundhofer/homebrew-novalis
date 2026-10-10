@@ -7,19 +7,10 @@ cask "novalis" do
   desc "Markdown notes with a Sublime-like editor and a Kanban board, in plain files"
   homepage "https://github.com/grundhofer/novalis"
 
-  # Pre-releases are the only releases until 1.0.0. The strategy skips them
-  # by default, so the block keeps them and drops only drafts.
+  # Stable releases only: GitHub's latest release is never a pre-release.
   livecheck do
     url :url
-    regex(/^v?(\d+(?:\.\d+)+(?:-[a-z]+\.\d+)?)$/i)
-    strategy :github_releases do |json, regex|
-      json.filter_map do |release|
-        next if release["draft"]
-
-        match = release["tag_name"]&.match(regex)
-        match[1] if match
-      end
-    end
+    strategy :github_latest
   end
 
   depends_on arch: :arm64
