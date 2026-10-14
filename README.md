@@ -11,11 +11,12 @@ brew install novalis-cli                       # the `novalis` command
 ```
 
 The app is not notarized by Apple (see the project's `docs/RELEASING.md`):
-`--no-quarantine` spares the right-click ▸ Open on first launch. Every release
+`--no-quarantine` spares the System Settings ▸ Privacy & Security ▸ Open
+Anyway step on first launch. Every release
 asset carries a build-provenance attestation — verify a download with
 `gh attestation verify <file> --repo grundhofer/novalis`.
 
-Releases before 1.0.0 are pre-releases; `brew upgrade` follows them.
+`brew upgrade` follows stable releases only; pre-releases are on GitHub.
 
 Two files change per release, both from the release's `SHA256SUMS`:
 `Casks/novalis.rb` (`version`, `sha256` of the DMG) and

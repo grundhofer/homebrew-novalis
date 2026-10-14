@@ -1,6 +1,6 @@
 cask "novalis" do
-  version "1.0.0"
-  sha256 "a159e47d5df70f23f6ec341d0a3e937f3121df159e27baab4e7dbef077c274b0"
+  version "1.0.1"
+  sha256 "88fb5f2d319ca40053e007a9dc275f02edb04946aa8f90d411d58e7acd56ad87"
 
   url "https://github.com/grundhofer/novalis/releases/download/v#{version}/novalis_#{version}_aarch64.dmg"
   name "novalis"
@@ -30,7 +30,8 @@ cask "novalis" do
   caveats do
     <<~EOS
       novalis is not notarized by Apple (docs/RELEASING.md, ADR-0010). Install
-      with --no-quarantine, or right-click novalis.app ▸ Open ▸ Open once.
+      with --no-quarantine, or once: System Settings ▸ Privacy & Security ▸
+      Open Anyway.
       Every release asset carries a build-provenance attestation:
         gh attestation verify <file> --repo grundhofer/novalis
     EOS
