@@ -29,9 +29,10 @@ cask "novalis" do
 
   caveats do
     <<~EOS
-      novalis is not notarized by Apple (docs/RELEASING.md, ADR-0010). Install
-      with --no-quarantine, or once: System Settings ▸ Privacy & Security ▸
-      Open Anyway.
+      novalis is not notarized by Apple (docs/RELEASING.md, ADR-0010). Before
+      the first launch, and again after each upgrade, run
+        xattr -dr com.apple.quarantine /Applications/novalis.app
+      or once: System Settings ▸ Privacy & Security ▸ Open Anyway.
       Every release asset carries a build-provenance attestation:
         gh attestation verify <file> --repo grundhofer/novalis
     EOS
