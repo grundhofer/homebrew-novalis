@@ -6,6 +6,7 @@ files, for Apple Silicon Macs on macOS 14 or later.
 
 ```sh
 brew tap grundhofer/novalis
+brew trust grundhofer/novalis                  # Homebrew 7 loads nothing from an untrusted tap
 brew install --cask novalis                    # the app
 brew install novalis-cli                       # the `novalis` command
 xattr -dr com.apple.quarantine /Applications/novalis.app   # once per app install or upgrade
