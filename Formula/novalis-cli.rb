@@ -1,8 +1,8 @@
 class NovalisCli < Formula
   desc "Headless vault operations for novalis: notes, links, tags, boards"
   homepage "https://github.com/grundhofer/novalis"
-  url "https://github.com/grundhofer/novalis/releases/download/v1.0.1/novalis-cli-1.0.1-arm64.tar.gz"
-  sha256 "20b9337b82be9ccdefe70603153457288cc35207e12e4635d56f5c9741f616bf"
+  url "https://github.com/grundhofer/novalis/releases/download/v1.1.0/novalis-cli-1.1.0-arm64.tar.gz"
+  sha256 "5c869271f9057f788537b3b0b274807a2997f0f68bfa0efa694463524b24a419"
   license "AGPL-3.0-only"
 
   # Stable releases only: GitHub's latest release is never a pre-release.
