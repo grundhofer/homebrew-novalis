@@ -1,6 +1,6 @@
 cask "novalis" do
-  version "1.1.0"
-  sha256 "7652539d0ee306a89b148bffad8b9c149dab3c589f39d5676d29807becd3977c"
+  version "1.3.0"
+  sha256 "9cf5a21aa5ea8075bbc58bd2db8e684b70bb9926bee5528b2039afc7f8214b02"
 
   url "https://github.com/grundhofer/novalis/releases/download/v#{version}/novalis_#{version}_aarch64.dmg"
   name "novalis"
